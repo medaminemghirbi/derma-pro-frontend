@@ -5,8 +5,7 @@
         "create": "Create Blog",
         "update": "Update Blog",
         "destroy": "Delete Blog",
-        "show": "View Blog",
-        "all_blogs": "All Blogs"
+        "show": "View Blog"
     },
     "Doctor_settings": {
         "language_system": "DermaPro Language System",
@@ -61,7 +60,6 @@
         "forum": "Forum",
         "email_box": "Link Box",
         "documents": "Documents",
-        "blogs": "Blogs",
         "analyze_with_ai": "Analyze With IA",
         "logout": "Logout"
     },
@@ -168,20 +166,6 @@
         "delete": "Delete",
         "preview": "Document Preview"
     },
-    "Doctor_blogs": {
-        "title": "Blogs Section",
-        "all_verified": "All DermaPro Verified Blogs",
-        "my_blogs": "My Blogs",
-        "add_new": "Create New Blog ",
-        "read_more": "Read More",
-        "create_new_blog": {
-            "title": "Create a Blog Post",
-            "select_diseas": "Select diseas ",
-            "blog_title": "Blog Title",
-            "content": "Write your content here ..",
-            "submit": "Create Blog"
-        }
-    },
     "Doctor_IA_section": {
         "title": "Analyze Image with AI",
         "current_tries": "Your Current Tries are:",
@@ -215,7 +199,6 @@
         "appointment_request": "Appointment Request",
         "forum_with_doctors": "Forum with Doctors",
         "email_box": "Link Box",
-        "blogs": "Blogs",
         "logout": "Logout"
     },
     "header_patient": {
@@ -274,9 +257,6 @@
     "certifications": "Certifications",
     "langues": "Languages"
     },
-    "no_blogs_title": "No blogs for now.",
-    "no_blogs_contenu": "Come back later to discover new articles.",
-
     "select_date":{
         "back":"Go Back",
         "previous":"Previous",

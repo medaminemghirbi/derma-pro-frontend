@@ -66,7 +66,6 @@ export class BookNowComponent implements OnInit {
       (response) => {
         Swal.fire('Whooa!', 'Appointment successfully created.', 'success').then(() => {
           registerButton.disabled = false;
-          this.router.navigate(['/patient/appointment-request']);
           this.isLoading = false;
         });
       },

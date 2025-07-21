@@ -5,8 +5,7 @@
     "create": "Créer un blog",
     "update": "Mettre à jour le blog",
     "destroy": "Supprimer le blog",
-    "show": "Voir le blog",
-    "all_blogs": "Tous les blogs"
+    "show": "Voir le blog"
   },
   "Doctor_settings": {
     "language_system": "Système de Langue DermaPro",
@@ -56,11 +55,12 @@
   "Doctor_sidebar": {
     "dashboard": "Tableau de Bord",
     "appointment_request": "Rendez-vous",
-    "planning": "Planification",
+    "planning": "Agenda",
     "forum": "Forum",
     "email_box": "Boîte des Liens",
     "documents": "Documents",
-    "blogs": "Blogs",
+    "patients": "Patients",
+
     "analyze_with_ai": "Analyser avec IA",
     "logout": "Déconnexion"
   },
@@ -124,7 +124,7 @@
     "today": "Aujourd'hui à"
   },
   "Doctor_appointments": {
-    "all_patients_requests": "Toutes les rendez-vous faits  des patients",
+    "all_patients_requests": "Toutes les rendez-vous",
     "search_for": "Rechercher...",
     "filter_by_state": {
       "title": "Filtrer par état",
@@ -139,7 +139,7 @@
     "doctor": "Médecin",
     "patient": "Patient",
     "phone_number": "Numéros de téléphone",
-    "status_demande": "etat de demande",
+    "status_demande": "etat de rendez-vous",
     "status": "statut de paiement en ligne",
     "update": "Mettre à jour",
     "no_appointmnet": "Aucun rendez-vous à venir",
@@ -164,20 +164,6 @@
     "rename": "Renommer",
     "delete": "Supprimer",
     "preview": "Aperçu du document"
-  },
-  "Doctor_blogs": {
-    "title": "Section des Articles",
-    "all_verified": "Tous les Articles vérifiés par DermaPro",
-    "my_blogs": "Mes Articles",
-    "add_new": "Créer un nouveau blog",
-    "read_more": "En savoir plus",
-    "create_new_blog": {
-      "title": "Créer un article de blog",
-      "select_diseas": "Sélectionner une maladie",
-      "blog_title": "Titre du blog",
-      "content": "Écrivez votre contenu ici ..",
-      "submit": "créer l'Article"
-    }
   },
   "Doctor_IA_section": {
     "title": "Analyser l'image avec l'IA",

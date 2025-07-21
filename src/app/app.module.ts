@@ -21,8 +21,6 @@ import { PatientsComponent } from './admin/patients/patients.component';
 import { PlanningComponent } from './admin/planning/planning.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { ForumsComponent } from './shared/spinner/forums/forums.component';
-import { BlogDetailsComponent } from './user/blog-details/blog-details.component';
-import { BlogsComponent } from './admin/blogs/blogs.component';
 import { DashboardDoctorComponent } from './doctor/dashboard-doctor/dashboard-doctor.component';
 import { PlanningDoctorComponent } from './doctor/planning-doctor/planning-doctor.component';
 import { DoctorHeaderComponent } from './doctor/doctor-header/doctor-header.component';
@@ -31,12 +29,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { AnalyzeImageComponent } from './doctor/analyze-image/analyze-image.component';
 import { MaladieComponent } from './admin/maladie/maladie.component';
-import { DoctorBlogsComponent } from './doctor/doctor-blogs/doctor-blogs.component';
 import { LandingComponent } from './landing/landing.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { DoctorSettingsComponent } from './doctor/doctor-settings/doctor-settings.component';
 import { FirstKeyValuePipe } from './first-key-value.pipe';
-import { AppointmentRequestsComponent } from './doctor/appointment-requests/appointment-requests.component';
 import { FilterByStatusPipe } from './filter-by-status.pipe';
 import { MapPickerComponent } from './doctor/map-picker/map-picker.component';
 import { MyLocationComponent } from './shared/my-location/my-location.component';
@@ -49,7 +45,6 @@ import { DokumentsComponent } from './doctor/dokuments/dokuments.component';
 import { DashboardPatientComponent } from './patient/dashboard-patient/dashboard-patient.component';
 import { PatientSidebarComponent } from './patient/patient-sidebar/patient-sidebar.component';
 import { PatientHeaderComponent } from './patient/patient-header/patient-header.component';
-import { BlogsPatientComponent } from './patient/blogs-patient/blogs-patient.component';
 import { MyRequestsComponent } from './patient/my-requests/my-requests.component';
 import { SettingsPatientComponent } from './patient/settings-patient/settings-patient.component';
 import { HeaderPatientSettingsComponent } from './patient/header-patient-settings/header-patient-settings.component';
@@ -89,6 +84,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { LoadingAnalyazeComponent } from './shared/loading-analyaze/loading-analyaze.component';
 import { VerifyDoctorProfilComponent } from './verify-doctor-profil/verify-doctor-profil.component';
 import { SafeUrlPipe } from './safe-url.pipe';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -105,8 +101,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     PatientsComponent,
     PlanningComponent,
     ForumsComponent,
-    BlogDetailsComponent,
-    BlogsComponent,
     DashboardDoctorComponent,
     PlanningDoctorComponent,
     DoctorHeaderComponent,
@@ -114,12 +108,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     UnauthorizedComponent,
     AnalyzeImageComponent,
     MaladieComponent,
-    DoctorBlogsComponent,
     LandingComponent,
     RegistrationComponent,
     DoctorSettingsComponent,
     FirstKeyValuePipe,
-    AppointmentRequestsComponent,
     FilterByStatusPipe,
     MapPickerComponent,
     MyLocationComponent,
@@ -132,7 +124,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardPatientComponent,
     PatientSidebarComponent,
     PatientHeaderComponent,
-    BlogsPatientComponent,
     MyRequestsComponent,
     SettingsPatientComponent,
     HeaderPatientSettingsComponent,
@@ -195,6 +186,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     FullCalendarModule,
     QRCodeModule,
+    DragDropModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

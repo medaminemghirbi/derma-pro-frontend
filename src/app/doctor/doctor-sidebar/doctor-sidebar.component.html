@@ -9,13 +9,6 @@
                         <span>{{ 'Doctor_sidebar.dashboard' | translate }}</span>
                     </a>
                 </li>
-                <li routerLinkActive="active">
-                    <a routerLink="/doctor/appointment-request">
-                        <span class="menu-side"><img
-                                src="../../../assets/img/icons/reservation-smartphone-svgrepo-com.svg" alt></span>
-                        <span>{{ 'Doctor_sidebar.appointment_request' | translate }}</span>
-                    </a>
-                </li>
 
                 <li routerLinkActive="active">
                     <a routerLink="/doctor/planning">
@@ -25,21 +18,21 @@
                     </a>
                 </li>
                 <li routerLinkActive="active">
-                    <a routerLink="/forums"><span class="menu-side"><img
+                    <a routerLink="/patients"><span class="menu-side"><img
                                 src="../../../assets/img/icons/online-meeting-discussion-communication-svgrepo-com.svg"
                                 alt></span> <span>
-                            <span>{{ 'Doctor_sidebar.forum' | translate }}</span>
+                            <span>{{ 'Doctor_sidebar.patients' | translate }}</span>
 
                         </span></a>
                 </li>
-                <li *ngIf="currentuser.working_on_line" routerLinkActive="active">
+                <!-- <li *ngIf="currentuser.working_on_line" routerLinkActive="active">
                     <a routerLink="/mail"><span class="menu-side"><img
                         
                                 src="../../../assets/img/icons/vivre.svg" alt></span> <span>
                             <span>{{ 'Doctor_sidebar.email_box' | translate }}</span>
 
                         </span></a>
-                </li>
+                </li> -->
                 <li routerLinkActive="active">
                     <a routerLink="/doctor/dokuments"><span class="menu-side"><img
                                 src="../../../assets/img/icons/document-icon.svg" alt></span> <span>
@@ -47,15 +40,7 @@
 
                         </span></a>
                 </li>
-                <li routerLinkActive="active">
-                    <a routerLink="/doctor/blogs"><span class="menu-side"><img
-                                src="../../../assets/img/icons/read-news-learn-understand-paper-svgrepo-com.svg"
-                                alt></span> <span>
-                            <span>{{ 'Doctor_sidebar.blogs' | translate }}</span>
-
-                        </span></a>
-                </li>
-                <li routerLinkActive="active">
+                <!-- <li routerLinkActive="active">
                     <a routerLink="/doctor/analyze-image"> 
                         <span class="menu-side">
                             <img src="../../../assets/img/icons/microscope-svgrepo-com.svg" alt="">
@@ -63,7 +48,7 @@
                         <span> <span>{{ 'Doctor_sidebar.analyze_with_ai' | translate }}</span>
                         </span>
                     </a>
-                </li>
+                </li> -->
             </ul>
             <div class="logout-btn">
                 <a href="#" (click)="logout(); $event.preventDefault();">

@@ -5,8 +5,7 @@
         "create": "إنشاء مدونة",
         "update": "تحديث المدونة",
         "destroy": "حذف المدونة",
-        "show": "عرض المدونة",
-        "all_blogs": "جميع المدونات"
+        "show": "عرض المدونة"
     },
     "Doctor_settings": {
         "language_system": "نظام اللغة الخاص بـ DermaPro",
@@ -60,7 +59,6 @@
         "forum": "المنتدى",
         "email_box": "صندوق الروابط",
         "documents": "المستندات",
-        "blogs": "المدونات",
         "analyze_with_ai": "الذكاء الاصطناعي",
         "logout": "تسجيل الخروج"
     },
@@ -170,20 +168,6 @@
         "delete": "حذف",
         "preview": "معاينة المستند"
     },
-    "Doctor_blogs": {
-        "title": "قسم المدونات",
-        "all_verified": "جميع المدونات المعتمدة من DermaPro",
-        "my_blogs": "مدوناتي",
-        "add_new": "إنشاء مدونة جديدة",
-        "read_more": "قراءة المزيد",
-        "create_new_blog": {
-            "title": "إنشاء منشور مدونة",
-            "select_diseas": "اختر المرض",
-            "blog_title": "عنوان المدونة",
-            "content": "اكتب المحتوى هنا ..",
-            "submit": "إنشاء مدونة"
-        }
-    },
     "Doctor_IA_section": {
         "title": "تحليل الصورة بالذكاء الاصطناعي",
         "current_tries": "محاولاتك الحالية هي:",
@@ -217,7 +201,6 @@
         "appointment_request": "طلب موعد",
         "forum_with_doctors": "منتدى مع الأطباء",
         "email_box": "صندوق البريد",
-        "blogs": "المدونات",
         "logout": "تسجيل الخروج"
     },
     "header_patient": {
@@ -276,8 +259,6 @@
     "certifications": "الشهادات",
     "langues": "اللغات"
 },      
-    "no_blogs_title": "لا توجد مدونات في الوقت الحالي.",
-    "no_blogs_contenu": "عد لاحقًا لاكتشاف مقالات جديدة.",
     "select_date": {
         "back": "العودة",
         "previous": "السابق",
