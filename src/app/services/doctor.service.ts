@@ -181,4 +181,5 @@ export class DoctorService {
   getConsultationDetails(id: any){
     return this.http.get(environment.urlBackend + 'api/v1/consultations/' +id);
   }
+
 }

@@ -163,8 +163,8 @@
 				[ 'data1', 'data2']
 			],
 			colors: {
-				data1: 'red',
-				data2: 'orange'
+				data1: '#44c4fa',
+				data2: '#664dc9'
 			},
 			names: {
 				// name of each serie
@@ -367,7 +367,7 @@
 			bottom: 0,
 			top: 0
 		},
-	});
+	}); 
 
 	/*chart-bar*/
 	var chart = c3.generate({
@@ -380,8 +380,8 @@
 			],
 			type: 'bar', // default type of chart
 			colors: {
-				data1: '#2E37A4',
-				data2: '#00D3C7'
+				data1: '#664dc9',
+				data2: '#44c4fa'
 			},
 			names: {
 				// name of each serie
@@ -455,8 +455,8 @@
 			],
 			type: 'bar', // default type of chart
 			colors: {
-				data1: '#2E37A4',
-				data2: '#00D3C7'
+				data1: '#44c4fa',
+				data2: '#664dc9'
 			},
 			names: {
 				// name of each serie
@@ -498,8 +498,8 @@
 				[ 'data1', 'data2']
 			],
 			colors: {
-				data1: '#2E37A4',
-				data2: '#00D3C7'
+				data1: '#44c4fa',
+				data2: '#664dc9'
 			},
 			names: {
 				// name of each serie

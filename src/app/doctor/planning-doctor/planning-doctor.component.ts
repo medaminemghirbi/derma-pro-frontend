@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions, EventApi } from '@fullcalendar/core';
-import interactionPlugin from '@fullcalendar/interaction';
+import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
@@ -28,7 +28,7 @@ export class PlanningDoctorComponent implements OnInit {
   selectedTime: Date | null = null; // To hold the selected time for the appointment
   selectedDate: Date | null = null; // To hold the selected date for the appointment
   bookedSlots: string[] = []; // Store booked time slots in a string array
-  consultationDetails:any 
+  consultationDetails: any;
   constructor(
     private doctorSerivce: DoctorService,
     private auth: AuthService,
@@ -40,7 +40,7 @@ export class PlanningDoctorComponent implements OnInit {
     this.currentUser = this.auth.getcurrentuser();
 
     // Dynamically set hiddenDays based on whether the user works on Saturday
-    const hiddenDays = this.currentUser.working_saturday ? [0] : [0, 6]; // Hide only Sunday if working_saturday is true, else hide both Sunday and Saturday
+    const hiddenDays = this.currentUser.working_weekends ? [] : [0, 7];
 
     this.calendarOptions = {
       plugins: [interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin],
@@ -59,10 +59,10 @@ export class PlanningDoctorComponent implements OnInit {
       height: 'auto',
       allDaySlot: false,
       selectable: true,
-      events: [],// To be populated after fetching consultations
-      eventClick: this.handleEventClick.bind(this),
+      events: [], // To be populated after fetching consultations
+      dateClick: (arg) => this.handleDateClick(arg),
 
-      locale: this.currentUser.language
+      locale: this.currentUser.language,
     };
 
     this.loadConsultations();
@@ -73,7 +73,11 @@ export class PlanningDoctorComponent implements OnInit {
       (consultations) => {
         this.isLoading = true;
         const events = consultations.map((consultation) => ({
-          title: `=> Consultation with Mr ${consultation.patient.firstname} ${consultation.patient.lastname} (${consultation.appointment_type === 'online' ? 'Online' : 'onsite'})`,
+          title: `=> Consultation with Mr ${consultation.patient.firstname} ${
+            consultation.patient.lastname
+          } (${
+            consultation.appointment_type === 'online' ? 'Online' : 'onsite'
+          })`,
           start: consultation.appointment,
           end: this.addMinutesToDate(new Date(consultation.appointment), 30),
           id: consultation.id,
@@ -83,8 +87,11 @@ export class PlanningDoctorComponent implements OnInit {
         }));
 
         // Create a set of booked time slots for easy lookup (just the start times)
-        this.bookedSlots = consultations.map((consultation) =>
-          this.formatDate(new Date(consultation.appointment)) + " " + new Date(consultation.appointment).toLocaleTimeString()
+        this.bookedSlots = consultations.map(
+          (consultation) =>
+            this.formatDate(new Date(consultation.appointment)) +
+            ' ' +
+            new Date(consultation.appointment).toLocaleTimeString()
         );
 
         this.calendarOptions.events = events;
@@ -107,19 +114,9 @@ export class PlanningDoctorComponent implements OnInit {
   addMinutesToDate(date: Date, minutes: number): Date {
     return new Date(date.getTime() + minutes * 60000);
   }
-  handleEventClick(arg: any): void {
-    const consultationId = arg.event.id;
-  
-    this.doctorSerivce.getConsultationDetails(consultationId).subscribe(
-      (data) => {
-          this.router.navigate(['/consultations', consultationId, 'report']);
-        },
-      (err: HttpErrorResponse) => {
-        console.log(err);
-        this.messageErr = "We don't found this consultation  in our database";
-      }
-    );
-  }
-  
 
+ handleDateClick(arg: DateClickArg) {
+  const consultation_date = this.formatDate(new Date(arg.dateStr));
+  this.router.navigate(['/doctor/add-new-consultation', consultation_date]);
+}
 }

@@ -18,25 +18,25 @@ $(function() {
 			bars: {
 				show: true,
 				lineWidth: 0,
-				fillColor: '#2E37A4',
+				fillColor: '#44c4fa',
 				barWidth: .4
 			},
 			highlightColor: '#7cd6fc'
 		},
 		grid: {
 			borderWidth: 1,
-			borderColor: '#00D3C7',
+			borderColor: 'rgba(67, 87, 133, .09)',
 			hoverable: true
 		},
 		yaxis: {
-			tickColor: '#00D3C7',
+			tickColor: 'rgba(67, 87, 133, .09)',
 			font: {
 				color: '#8e9cad',
 				size: 10
 			}
 		},
 		xaxis: {
-			tickColor: '#00D3C7',
+			tickColor: 'rgba(67, 87, 133, .09)',
 			font: {
 				color: '#8e9cad',
 				size: 10
@@ -58,7 +58,7 @@ $(function() {
 		bars: {
 			show: true,
 			lineWidth: 0,
-			fillColor: '#00D3C7',
+			fillColor: '#664dc9',
 			barWidth: .8
 		}
 	}, {
@@ -75,23 +75,23 @@ $(function() {
 		bars: {
 			show: true,
 			lineWidth: 0,
-			fillColor: '#2E37A4',
+			fillColor: '#44c4fa',
 			barWidth: .8
 		}
 	}], {
 		grid: {
 			borderWidth: 1,
-			borderColor: '#00D3C7'
+			borderColor: 'rgba(67, 87, 133, .09)'
 		},
 		yaxis: {
-			tickColor: '#00D3C7',
+			tickColor: 'rgba(67, 87, 133, .09)',
 			font: {
 				color: '#8e9cad',
 				size: 10
 			}
 		},
 		xaxis: {
-			tickColor: '#00D3C7',
+			tickColor: 'rgba(67, 87, 133, .09)',
 			font: {
 				color: '#8e9cad',
 				size: 10
@@ -148,14 +148,14 @@ $(function() {
 		yaxis: {
 			min: 0,
 			max: 40,
-			color: '#00D3C7',
+			color: 'rgba(67, 87, 133, .09)',
 			font: {
 				size: 10,
 				color: '#8e9cad'
 			}
 		},
 		xaxis: {
-			color: '#00D3C7',
+			color: 'rgba(67, 87, 133, .09)',
 			font: {
 				size: 10,
 				color: '#8e9cad'
@@ -195,14 +195,14 @@ $(function() {
 		yaxis: {
 			min: 0,
 			max: 50,
-			color: '#00D3C7',
+			color: 'rgba(67, 87, 133, .09)',
 			font: {
 				size: 10,
 				color: '#8e9cad'
 			}
 		},
 		xaxis: {
-			color: '#00D3C7',
+			color: 'rgba(67, 87, 133, .09)',
 			font: {
 				size: 10,
 				color: '#8e9cad'
@@ -250,14 +250,14 @@ $(function() {
 		yaxis: {
 			min: 0,
 			max: 50,
-			color: '#00D3C7',
+			color: 'rgba(67, 87, 133, .09)',
 			font: {
 				size: 10,
 				color: '#8e9cad'
 			}
 		},
 		xaxis: {
-			color: '#00D3C7',
+			color: 'rgba(67, 87, 133, .09)',
 			font: {
 				size: 10,
 				color: '#8e9cad'
@@ -305,14 +305,14 @@ $(function() {
 		yaxis: {
 			min: 0,
 			max: 50,
-			color: '#00D3C7',
+			color: 'rgba(67, 87, 133, .09)',
 			font: {
 				size: 10,
 				color: '#8e9cad'
 			}
 		},
 		xaxis: {
-			color: '#00D3C7',
+			color: 'rgba(67, 87, 133, .09)',
 			font: {
 				size: 10,
 				color: '#8e9cad'

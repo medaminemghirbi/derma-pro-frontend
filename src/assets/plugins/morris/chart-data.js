@@ -71,7 +71,7 @@ $(function() {
 		xkey: 'y',
 		ykeys: ['a', 'b'],
 		labels: ['Series A', 'Series B'],
-		barColors: ['#2E37A4','#00D3C7'],
+		barColors: ['#664dc9','#44c4fa'],
 		gridTextSize: 11,
 		hideHover: 'auto',
 		resize: true
@@ -82,7 +82,7 @@ $(function() {
 		xkey: 'y',
 		ykeys: ['a', 'b'],
 		labels: ['Series A', 'Series B'],
-		barColors: ['#2E37A4','#00D3C7'],
+		barColors: ['#664dc9','#44c4fa'],
 		stacked: true,
 		gridTextSize: 11,
 		hideHover: 'auto',
@@ -194,7 +194,7 @@ $(function() {
 		xkey: 'x',
 		ykeys: ['y', 'z'],
 		labels: ['data1', 'data2'],
-		lineColors: ['#2E37A4','rgb(252, 96, 117'],
+		lineColors: ['#664dc9','#44c4fa'],
 		parseTime: false,
 		ymin: -1.0,
 		ymax: 1.0,
@@ -227,7 +227,7 @@ $(function() {
 	  xkey: 'period',
 	  ykeys: ['licensed', 'sorned'],
 	  labels: ['Licensed', 'SORN'],
-		lineColors: ['#2E37A4','rgb(252, 96, 117'],
+		lineColors: ['#664dc9','#44c4fa'],
 	});
 
 	new Morris.Donut({
@@ -248,4 +248,22 @@ $(function() {
 		backgroundColor: 'rgba(119, 119, 142, 0.2)',
 		labelColor: '#8e9cad',
 	});
+
+	var day_data1 = [
+		{"period": "2012-10-01", "licensed": 20},
+		{"period": "2012-09-30", "licensed": 10},
+		{"period": "2012-09-29", "licensed": 15},
+		{"period": "2012-09-20", "licensed": 10},
+		{"period": "2012-09-19", "licensed": 20},
+		{"period": "2012-09-18", "licensed": 10}
+	  ];
+	  new Morris.Line({
+		element: 'morrisline',
+  
+		data: day_data1,
+		xkey: 'period',
+		ykeys: ['licensed'],
+		labels: ['Licensed'],
+		  lineColors: ['#664dc9'],
+	  });
 });

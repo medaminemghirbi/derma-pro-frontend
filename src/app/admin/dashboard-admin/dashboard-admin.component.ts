@@ -115,7 +115,7 @@ export class DashboardAdminComponent implements OnInit {
               data.maladies,
               data.scanned
             ], 
-            label: 'DermaPro Officiel statistic' 
+            label: 'DocPro Officiel statistic' 
           }
         ];
         this.chartReady1 = true;

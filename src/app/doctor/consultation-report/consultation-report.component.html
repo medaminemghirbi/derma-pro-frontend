@@ -10,22 +10,12 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title mb-4">Partie consultation de dermaPro Mr(s) {{patientDetails?.firstname}} {{patientDetails?.lastname}}</h4>
+                        <h4 class="header-title mb-4">Partie consultation de DocPro Mr(s) {{patientDetails?.firstname}} {{patientDetails?.lastname}}</h4>
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="nav flex-column nav-pills nav-pills-tab" id="v-pills-tab" role="tablist"
                                     aria-orientation="vertical">
                                     <!-- First link (Scanner Image avec IA) -->
-                                    <a class="nav-link active show mb-1" id="v-pills-scan" data-bs-toggle="pill"
-                                        href="#v-pills-home" role="tab" aria-controls="v-pills-home"
-                                        aria-selected="true">
-                                        Analyse Une Image avec IA</a>
-
-                                    <!-- Second link (Scanner Image avec IA - Historique) -->
-                                    <a class="nav-link mb-1" id="v-pills-scan-historique" data-bs-toggle="pill"
-                                        href="#v-pills-home-historique" role="tab"
-                                        aria-controls="v-pills-home-historique" aria-selected="false">
-                                        Rapports des Images Anaylser en consultation</a>
 
                                     <!-- Rapport de consultation link -->
                                     <a class="nav-link mb-1" id="v-pills-profile-tab" data-bs-toggle="pill"
@@ -44,20 +34,7 @@
                             <div class="col-sm-9">
                                 <div class="tab-content">
                                     <!-- Tab content for Scanner Image avec IA -->
-                                    <div class="tab-pane fade active show" id="v-pills-home" role="tabpanel"
-                                        aria-labelledby="v-pills-scan">
-                                        <p>
-                                            <app-anyalze-per-consultation></app-anyalze-per-consultation>
-                                        </p>
-                                    </div>
 
-                                    <!-- Tab content for Historique des Scanner Image avec IA -->
-                                    <div class="tab-pane fade" id="v-pills-home-historique" role="tabpanel"
-                                        aria-labelledby="v-pills-scan-historique">
-                                        <p>
-                                            <app-reports-per-consultation></app-reports-per-consultation>
-                                        </p>
-                                    </div>
 
                                     <!-- Rapport de consultation -->
                                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
