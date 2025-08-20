@@ -76,8 +76,8 @@ export class AuthService {
   updateSystemNotificationPreference(userId: string, isNotifiable: boolean) {
       return this.http.put(environment.urlBackend+`api/v1/users/${userId}/system_notifications`, { is_notifiable: isNotifiable });
   }
-  updateworkinginsatudray(userId: string, working_saturday: boolean) {
-    return this.http.put(environment.urlBackend+`api/v1/users/${userId}/working_saturday`, { working_saturday: working_saturday });
+  updateWorkingWeekends(userId: string, working_weekends: boolean) {
+    return this.http.put(environment.urlBackend+`api/v1/users/${userId}/working_weekends`, { working_weekends: working_weekends });
   }
   updatetoggleSmsNotifications(userId: string, is_smsable: boolean) {
     return this.http.put(environment.urlBackend+`api/v1/users/${userId}/sms_notifications`, { is_smsable: is_smsable });
@@ -111,5 +111,7 @@ sendresetlink (email:any)  {
 resetpassword(token:string,email:any){
   return this.http.put(environment.urlBackend+'api/v1/password_resets/'+token,email);
 }
-
+  GoogleAuthentification() {
+    return this.http.get(`${environment.urlBackend}oauth/google_oauth2/callback`);
+  }
 }

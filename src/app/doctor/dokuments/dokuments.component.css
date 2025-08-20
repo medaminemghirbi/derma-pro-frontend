@@ -1,11 +1,94 @@
-.bibliography-wrapper {
-    border: 1px solid #ccc;
-    padding: 10px;
-    background: #fff;
+/* --- New Styles for Action Buttons Grid --- */
+.action-buttons-grid {
+    display: grid;
+    /* Define 2 columns for wider screens, can adjust as needed */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px; /* Space between buttons */
+    justify-content: center; /* Center the grid within the cell */
+    align-items: center; /* Vertically align items in the grid */
+    min-width: 250px; /* Ensure enough space for the buttons, adjust as needed */
+    margin: 0 auto; /* Center the grid container in the table cell */
 }
 
-.preview-wrapper {
-    border: 1px solid #ccc;
-    padding: 10px;
-    background: #f9f9f9;
+/* Adjust for specific number of buttons to maintain layout.
+   If you consistently have 4 buttons, a 2x2 grid is ideal.
+   If you have 3 buttons, you might want a 3-column explicit grid,
+   or just let the 2-column flexbox handle it gracefully.
+   Given 4 actions (show, download, rename, delete) now, a 2x2 grid is perfect.
+*/
+.action-buttons-grid a.btn {
+    width: 100%; /* Make buttons fill their grid cell */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    /* Remove individual margins if grid gap handles spacing */
+    margin: 0 !important;
+}
+
+
+/* --- Existing styles (ensure these are present and perhaps tweaked slightly) --- */
+
+/* Action Buttons in Table - Re-check these values with the new grid setup */
+.actions .btn,
+.action-buttons-grid .btn { /* Apply to both if you keep 'actions' or use new grid class */
+    font-size: 13px; /* Slightly smaller for compactness in grid */
+    padding: 8px 10px; /* Adjusted padding */
+    border-radius: 6px;
+    min-width: unset; /* Remove min-width, let grid handle sizing */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition: all var(--transition-speed);
+    border-width: 1px;
+}
+
+.action-buttons-grid .btn i {
+    margin-right: 6px; /* Space between icon and text */
+}
+
+/* Responsive Adjustments: Re-evaluate how icons/text behave on small screens with grid */
+@media (max-width: 991.98px) {
+    .action-buttons-grid {
+        grid-template-columns: repeat(2, 1fr); /* Stay 2 columns even on medium screens */
+        gap: 6px; /* Slightly smaller gap */
+    }
+    .action-buttons-grid .btn {
+        font-size: 11px; /* Even smaller font */
+        padding: 6px 8px;
+    }
+    .action-buttons-grid .btn i {
+        margin-right: 4px; /* Adjust icon margin */
+    }
+    .action-buttons-grid .btn span {
+        display: none !important; /* Hide text on smaller screens to save space */
+    }
+}
+
+@media (max-width: 767.98px) { /* Small screens (tablets in portrait, phones) */
+    .action-buttons-grid {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2 columns to avoid too narrow buttons */
+        gap: 5px;
+    }
+    /* You might consider making them full width and stacking for very small screens
+       if 2 columns are too cramped, but for "pro" look, 2 columns with icons might be fine */
+}
+.pdf-container {
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.pdf-preview-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.preview-image-wrapper img {
+  transition: transform 0.3s ease;
+}
+
+.preview-image-wrapper img:hover {
+  transform: scale(1.8);
+  cursor: zoom-in;
 }

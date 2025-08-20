@@ -13,6 +13,29 @@ import Swal from 'sweetalert2';
   styleUrls: ['./doctor-settings.component.css'],
 })
 export class DoctorSettingsComponent implements OnInit {
+  timeZones: string[] = [
+  'UTC',          // GMT+0
+  'Europe/London', // GMT+0 / GMT+1 selon saison
+  'Europe/Paris',  // GMT+1 / GMT+2 selon saison
+  'Africa/Tunis',  // GMT+1
+  'Africa/Cairo',  // GMT+2
+  'Asia/Dubai',    // GMT+4
+  'Asia/Kolkata',  // GMT+5:30
+  'Asia/Tokyo',    // GMT+9
+  'America/New_York', // GMT-5 / -4
+  'America/Los_Angeles', // GMT-8 / -7
+  'Etc/GMT+1',     // GMT-1
+  'Etc/GMT-1',     // GMT+1
+  'Etc/GMT-2',
+  'Etc/GMT-3',
+  'Etc/GMT-4',
+  'Etc/GMT-5',
+  'Etc/GMT-6',
+  'Etc/GMT-7',
+  'Etc/GMT-8',
+  'Etc/GMT-9',
+  'Etc/GMT-10',
+];
   locations: any = [];
   editor!: Editor;
   html!: '';
@@ -49,7 +72,7 @@ export class DoctorSettingsComponent implements OnInit {
       birthday: new FormControl('', [Validators.required]),
       firstname: new FormControl('', [Validators.required]),
       lastname: new FormControl('', [Validators.required]),
-      about_me: new FormControl('', [Validators.required]),
+      time_zone: new FormControl('', [Validators.required]),
 
 
     });
@@ -211,7 +234,7 @@ export class DoctorSettingsComponent implements OnInit {
     formData.append('location', this.upadate.value.location);
     formData.append('firstname', this.upadate.value.firstname);
     formData.append('lastname', this.upadate.value.lastname);
-    formData.append('about_me', this.upadate.value.about_me);
+    formData.append('time_zone', this.upadate.value.time_zone);
 
     Swal.fire({
       title: 'Do you want to save the changes?',

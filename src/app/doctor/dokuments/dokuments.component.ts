@@ -1,13 +1,13 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Validators } from 'ngx-editor';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/services/admin.service';
+import Panzoom from '@panzoom/panzoom';
 
 @Component({
   selector: 'app-dokuments',
@@ -17,7 +17,7 @@ import { AdminService } from 'src/app/services/admin.service';
 export class DokumentsComponent implements OnInit {
   p:number = 1 ;
   filteredDocuments: { title: string }[] = []; // To store filtered documents
-
+  selectedPdfUrl: string | null = null;
   newTitle: string = ''; // Property for the new title
   currentDocumentId: any; // To store the ID of the document being renamed
   dataDocument: any = {};
@@ -26,7 +26,9 @@ export class DokumentsComponent implements OnInit {
   document = {
     title: '',
     file: null,
+    remind_date: ''
   };
+  @ViewChild('zoomContainer', { static: false }) zoomContainerRef!: ElementRef;
   update!: FormGroup;
   messageErr = '';
   previewUrl: SafeResourceUrl | null = null;
@@ -42,6 +44,8 @@ export class DokumentsComponent implements OnInit {
   ) {
     this.update = new FormGroup({
       title: new FormControl(''),
+      remind_date: new FormControl(''),
+
     });
   }
 
@@ -50,7 +54,16 @@ export class DokumentsComponent implements OnInit {
     this.fetchDocuments();
   }
 
-  
+  ngAfterViewInit() {
+    const el = document.getElementById('zoomContainer');
+    if (el) {
+      Panzoom(el, {
+        maxScale: 5,
+        minScale: 1,
+        contain: 'outside',
+      });
+    }
+  }
   onFileSelected(event: any) {
     this.document.file = event.target.files[0];
 
@@ -93,7 +106,9 @@ export class DokumentsComponent implements OnInit {
   onSubmit() {
     const formData = new FormData();
     formData.append('document[title]', this.document.title);
-
+    if (this.document.remind_date) {
+      formData.append('document[remind_date]', this.document.remind_date);
+    }
     if (this.document.file) {
       formData.append('document[file]', this.document.file);
     } else {
@@ -261,5 +276,8 @@ export class DokumentsComponent implements OnInit {
           );
       }
     });
+  }
+  ajouter_rappel(id: any){
+    
   }
 }

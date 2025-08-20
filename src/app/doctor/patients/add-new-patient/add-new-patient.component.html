@@ -1,0 +1,206 @@
+<div class="main-wrapper">
+    <app-doctor-header></app-doctor-header>
+    <app-doctor-sidebar></app-doctor-sidebar>
+    <ng-progress #progressBar></ng-progress>
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="wizard">
+                                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                                    <li class="nav-item flex-fill" role="presentation" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Patient Details">
+                                        <a class="nav-link active rounded-circle mx-auto d-flex align-items-center justify-content-center"
+                                            href="#step1" id="step1-tab" data-bs-toggle="tab" role="tab"
+                                            aria-controls="step1" aria-selected="true">
+                                            <i class="far fa-user"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item flex-fill" role="presentation" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Address Details">
+                                        <a class="nav-link rounded-circle mx-auto d-flex align-items-center justify-content-center"
+                                            href="#step2" id="step2-tab" data-bs-toggle="tab" role="tab"
+                                            aria-controls="step2" aria-selected="false">
+                                            <i class="fas fa-map-pin"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content" id="myTabContent">
+                                    <!-- Step 1: Personal Info -->
+                                    <div class="tab-pane fade show active" role="tabpanel" id="step1"
+                                        aria-labelledby="step1-tab">
+                                        <div class="mb-4">
+                                            <h5>Enter Patient Personal Details</h5>
+                                        </div>
+                                        <div *ngIf="patientForm.invalid && (patientForm.touched || submitted)"
+                                            class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>Warning!</strong> Please correct the errors in the form below.
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+
+                                        <form [formGroup]="patientForm">
+
+
+                                            <div class="row">
+                                                <div class="col-lg-2">
+                                                    <div class="input-block mb-3">
+                                                        <label for="basicpill-lastname-input" class="form-label">civil
+                                                            status<span style="color: red;">*</span></label>
+                                                        <select class="form-control" formControlName="civil_status"
+                                                            required
+                                                            [ngClass]="{ 'is-invalid': patientForm.get('civil_status')?.invalid && (patientForm.get('civil_status')?.touched || submitted) }"
+                                                            aria-label=".form-select-lg example">
+                                                            <option value="Mr">Mr</option>
+                                                            <option value="Mrs">Mrs</option>
+                                                            <option value="Mme">Mme</option>
+                                                            <option value="other">other</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5">
+                                                    <div class="input-block mb-3">
+                                                        <label for="basicpill-firstname-input" class="form-label">First
+                                                            name <span style="color: red;">*</span></label>
+                                                        <input type="text" class="form-control"
+                                                            [ngClass]="{ 'is-invalid': patientForm.get('firstname')?.invalid && (patientForm.get('firstname')?.touched || submitted) }"
+                                                            id="basicpill-firstname-input" formControlName="firstname">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5">
+                                                    <div class="input-block mb-3">
+                                                        <label for="basicpill-lastname-input" class="form-label">Last
+                                                            name <span style="color: red;">*</span></label>
+                                                        <input type="text" class="form-control"
+                                                            [ngClass]="{ 'is-invalid': patientForm.get('lastname')?.invalid && (patientForm.get('lastname')?.touched || submitted) }"
+                                                            id="basicpill-lastname-input" formControlName="lastname">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="input-block mb-3">
+                                                        <label for="basicpill-phoneno-input" class="form-label">Phone
+                                                            <span style="color: red;">*</span></label>
+                                                        <input type="text" class="form-control"
+                                                            [ngClass]="{ 'is-invalid': patientForm.get('phoneNumber')?.invalid && (patientForm.get('phoneNumber')?.touched || submitted) }"
+                                                            id="basicpill-phoneno-input" formControlName="phoneNumber">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="input-block mb-3">
+                                                        <label for="basicpill-email-input"
+                                                            class="form-label">Email(Facultatif)</label>
+                                                        <input type="email" class="form-control"
+                                                            id="basicpill-email-input" formControlName="email">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="input-block mb-3">
+                                                        <label for="basicpill-birthday-input" class="form-label">Date of
+                                                            Birth <span style="color: red;">*</span></label>
+                                                        <input type="date" class="form-control"
+                                                            [ngClass]="{ 'is-invalid': patientForm.get('birthday')?.invalid && (patientForm.get('birthday')?.touched || submitted) }"
+                                                            id="basicpill-birthday-input" formControlName="birthday">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="input-block mb-3">
+                                                        <label for="basicpill-birthday-input" class="form-label">
+                                                            Gender <span style="color: red;">*</span></label>
+                                                        <select class="form-control" formControlName="gender" required
+                                                            [ngClass]="{ 'is-invalid': patientForm.get('gender')?.invalid && (patientForm.get('gender')?.touched || submitted) }"
+                                                            aria-label=".form-select-lg example">
+                                                            <option hidden value="" selected> Gender </option>
+                                                            <option value="male">Male</option>
+                                                            <option value="female">Femelle</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="input-block mb-3">
+                                                        <label for="basicpill-birthday-input" class="form-label">Medical
+                                                            History </label>
+                                                        <textarea class="form-control" id="basicpill-birthday-input"
+                                                            formControlName="medical_history" rows="4"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                        <div class="d-flex">
+                                            <button class="btn btn-primary next" (click)="nextStep()">Next</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 2: Address Info -->
+                                    <div class="tab-pane fade" role="tabpanel" id="step2" aria-labelledby="step2-tab">
+                                        <div class="mb-4">
+                                            <h5>Enter Address</h5>
+                                        </div>
+                                        <form [formGroup]="patientForm">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="input-block mb-3">
+                                                        <label for="basicpill-governorate-input"
+                                                            class="form-label">Gouvernament <span
+                                                                style="color: red;">*</span></label>
+                                                        <select class="form-control" formControlName="location"
+                                                            [ngClass]="{ 'is-invalid': patientForm.get('location')?.invalid && (patientForm.get('location')?.touched || submitted) }">
+                                                            <option hidden value="" selected>Select Your Gouvernement
+                                                            </option>
+                                                            <option *ngFor="let item of locations" [value]="item">{{
+                                                                item }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="input-block mb-3">
+                                                        <label for="basicpill-address-input" class="form-label">Address
+                                                            <span style="color: red;">*</span></label>
+                                                        <input type="text" class="form-control"
+                                                            [ngClass]="{ 'is-invalid': patientForm.get('address')?.invalid && (patientForm.get('address')?.touched || submitted) }"
+                                                            id="basicpill-address-input" formControlName="address">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                        <div class="d-flex">
+                                            <a class="btn btn-primary previous me-2"
+                                                (click)="previousStep()">Previous</a>
+                                            <a class="btn btn-primary" id="registerButton" (click)="save()"
+                                                data-bs-toggle="modal" data-bs-target="#save_modal">Save Changes</a>
+                                            <script>
+                                                document.getElementById('register-btn').addEventListener('click', (event) => {
+                                                    const button = event.target;
+                                                    button.disabled = true;
+                                                    button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...';
+                                                });
+                                            </script>
+
+
+                                        </div>
+                                    </div>
+                                </div> <!-- tab-content -->
+                            </div> <!-- wizard -->
+                        </div> <!-- card-body -->
+                    </div> <!-- card -->
+                </div> <!-- col -->
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- page-wrapper -->
+</div>

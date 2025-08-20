@@ -65,9 +65,11 @@ export class AdminService {
   }
 
   /////////////////////// Patients  */////////////////
-  getPatients() {
-    return this.http.get(`${environment.urlBackend}` + 'api/v1/patients/');
-  }
+    getPatients(id: string | number) {
+      const url = `${environment.urlBackend}/api/v1/patients/${id}`;
+      return this.http.get<any>(url);
+    }
+
   ArchivePatient(id: any) {
     return this.http.delete(environment.urlBackend + 'api/v1/patients/' + id);
   }
@@ -123,11 +125,7 @@ export class AdminService {
       environment.urlBackend + 'api/v1/get_message_by_blog/' + id
     );
   }
-  addVerification(id: any): Observable<any> {
-    const url = `${this.apiUrl}${id}`;
-    const body = { is_verified: true };
-    return this.http.patch(url, body);
-  }
+
   addVerificationAll(): Observable<any> {
     // PATCH with an empty object as the body
     return this.http.patch(this.apiUrlall, {});
@@ -174,8 +172,8 @@ export class AdminService {
 
 
 
-  getNotifications(id:any): Observable<any[]> {
-    return this.http.get<any[]>(environment.urlBackend + 'api/v1/notifications/' + id);
+  getNotifications(id:any){
+    return this.http.get(environment.urlBackend + 'api/v1/notifications/' + id);
   }
   updatePrediction(data:any){
     return this.http.patch(`${environment.urlBackend}predictions/${data.id}`, data);
@@ -183,4 +181,9 @@ export class AdminService {
   // markAsRead(notificationId: number): Observable<any> {
   //   return this.http.patch(`${this.apiUrl}/${notificationId}/mark_as_read`, {});
   // }
+
+
+    getConsultationTypes() {
+    return this.http.get(`${environment.urlBackend}` + 'api/v1/consultation_types/');
+  }
 }

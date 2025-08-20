@@ -1,0 +1,11 @@
+.login-body {
+  background-color: #f8f9fa;
+}
+
+.login-body .form-control {
+  border-radius: 0.375rem;
+}
+
+.toggle-password:hover {
+  opacity: 0.7;
+}

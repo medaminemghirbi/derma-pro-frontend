@@ -50,12 +50,12 @@ toggleSystemNotifications(event: Event) {
         }
     });
 }
-toggleWorkingSaturday(event: Event) {
+toggleWorkingWeekends(event: Event) {
     const isChecked = (event.target as HTMLInputElement).checked;
-    this.currentUser.working_saturday = isChecked;
+    this.currentUser.working_weekends = isChecked;
 
     // Call your service to update the user's preference in the backend
-    this.auth.updateworkinginsatudray(this.currentUser.id, isChecked).subscribe({
+    this.auth.updateWorkingWeekends(this.currentUser.id, isChecked).subscribe({
         next: (response) => {
             sessionStorage.setItem('doctordata', JSON.stringify(response));
             console.log('Workin in saturday updated successfully!', response);
