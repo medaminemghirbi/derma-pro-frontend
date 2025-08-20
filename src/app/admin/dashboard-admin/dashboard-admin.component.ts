@@ -56,27 +56,20 @@ export class DashboardAdminComponent implements OnInit {
 
   constructor( private route: Router , private auth: AuthService, private usersService: AdminService ) { 
     
-    this.chartLabels = ['Consultation', 'Patient', 'Blogs', 'Doctors', 'Number of diseases trained by AI', 'Scanned Image With IA'];
+    this.chartLabels = ['Consultation', 'Patient', 'Blogs', 'Doctors'];
     this.chartColors = [
       {
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
           'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
           'rgba(135, 107, 28, 0.2)',
-          'rgba(28, 13, 236, 0.2)',
-
-          'rgba(243, 215, 55, 0.2)',
         ],
         borderColor: [
           'rgba(255,99,132,1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
           'rgba(135, 107, 28, 1)',
-          'rgba(28, 13, 236, 0.2)',
-          'rgba(243, 215, 55, 0.2)',
         ],
         borderWidth: 2,
       }
@@ -111,9 +104,7 @@ export class DashboardAdminComponent implements OnInit {
               data.apointements, 
               data.patients, 
               data.blogs, 
-              data.doctors, 
-              data.maladies,
-              data.scanned
+              data.doctors
             ], 
             label: 'DocPro Officiel statistic' 
           }

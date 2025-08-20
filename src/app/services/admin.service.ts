@@ -125,11 +125,7 @@ export class AdminService {
       environment.urlBackend + 'api/v1/get_message_by_blog/' + id
     );
   }
-  addVerification(id: any): Observable<any> {
-    const url = `${this.apiUrl}${id}`;
-    const body = { is_verified: true };
-    return this.http.patch(url, body);
-  }
+
   addVerificationAll(): Observable<any> {
     // PATCH with an empty object as the body
     return this.http.patch(this.apiUrlall, {});

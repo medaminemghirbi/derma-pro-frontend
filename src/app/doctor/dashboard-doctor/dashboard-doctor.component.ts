@@ -1,97 +1,60 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { DoctorService } from 'src/app/services/doctor.service';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-dashboard-doctor',
   templateUrl: './dashboard-doctor.component.html',
   styleUrls: ['./dashboard-doctor.component.css']
 })
-export class DashboardDoctorComponent implements OnInit {
-  currentuser: any;
-  nextAppointment: any;
-  remainingHours!: number;
-  remainingMinutes!: number;
-  AppointmentOfTheDay: any;
-  DoctorStats: any;
+export class DashboardDoctorComponent implements OnInit, OnDestroy {
+  trialDays = 14;
+  daysLeft = 0;
+  hoursLeft = 0;
+  minutesLeft = 0;
+  secondsLeft = 0;
+  progress = 0;
+  showTrialBar = true;
 
-  messageErr = "";
-  show: boolean = false;
-  now: any;
+  private timer: any;
+  private endDate!: Date;
 
-  constructor(private auth: AuthService, private doctorService: DoctorService) { 
-    this.currentuser = this.auth.getcurrentuser();
-    this.now = moment(); 
-  }
+  constructor(private auth: AuthService) {}
 
   ngOnInit(): void {
-
-    // Fetch appointments data
-    this.doctorService.getDoctorAppointmentOfTheDay(this.currentuser.id).subscribe(
-      (data) => {
-        this.AppointmentOfTheDay = data;
-
-        // Call calculateNextAppointment after data is loaded
-        this.calculateNextAppointment();
-      },
-      (err: HttpErrorResponse) => {
-        this.messageErr = "We couldn't find any appointments for today";
-      }
-    );
-    this.doctorService.getDoctorStatistique(this.currentuser.id).subscribe(
-      (data) => {
-        this.DoctorStats = data;
-        console.log(this.DoctorStats);},
-      (err: HttpErrorResponse) => {
-        this.messageErr = "We couldn't find any stats for today";
-      }
-    );
+    const currentUser = this.auth.getcurrentuser();
+    if (currentUser?.account_access_granted_at) {
+      const startDate = new Date(currentUser.account_access_granted_at);
+      this.endDate = new Date(startDate.getTime() + this.trialDays * 24 * 60 * 60 * 1000);
+      this.updateCountdown();
+      this.timer = setInterval(() => this.updateCountdown(), 1000);
+    }
   }
 
-  calculateNextAppointment() {
-    const now = moment(); // Current time in local time zone
+  ngOnDestroy(): void {
+    if (this.timer) clearInterval(this.timer);
+  }
 
-    if (!this.AppointmentOfTheDay || this.AppointmentOfTheDay.length === 0) {
-      this.nextAppointment = null;
+  private updateCountdown() {
+    const now = new Date().getTime();
+    const diff = this.endDate.getTime() - now;
+
+    if (diff <= 0) {
+      this.daysLeft = this.hoursLeft = this.minutesLeft = this.secondsLeft = 0;
+      this.progress = 100;
+      clearInterval(this.timer);
       return;
     }
 
-    // Filter today's appointments
-    const todayAppointments = this.AppointmentOfTheDay.filter((app: any) => {
-      const appointmentDate = moment(app.appointment);
-      return appointmentDate.isSame(now, 'day'); // Check if the appointment is today
-    });
+    this.daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
+    this.hoursLeft = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    this.minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    this.secondsLeft = Math.floor((diff % (1000 * 60)) / 1000);
 
-    // Use appointment from consultation for upcoming appointments
-    const upcomingAppointments = todayAppointments
-      .filter((app: { appointment: string; }) => {
-        const appointmentTime = moment(app.appointment);
-
-        // Check if the appointment time is after the current time
-        return appointmentTime.isAfter(now); // Check if appointment time is after the current time
-      })
-      .sort((a: { appointment: string; }, b: { appointment: string; }) => {
-        return moment(a.appointment).diff(moment(b.appointment)); // Sort by start time
-      });
-
-    if (upcomingAppointments.length > 0) {
-      this.nextAppointment = upcomingAppointments[0];
-      this.calculateRemainingTime(this.nextAppointment.appointment);
-    } else {
-      this.nextAppointment = null;
-      this.show = true
-    }
+    const elapsedDays = this.trialDays - this.daysLeft - (this.hoursLeft > 0 || this.minutesLeft > 0 || this.secondsLeft > 0 ? 0 : 1);
+    this.progress = Math.min(100, (elapsedDays / this.trialDays) * 100);
   }
 
-  calculateRemainingTime(nextAppointmentTime: string) {
-    const now = moment();
-    const appointmentTime = moment(nextAppointmentTime);
-    const duration = moment.duration(appointmentTime.diff(now));
-
-    this.remainingHours = Math.floor(duration.asHours());
-    this.remainingMinutes = Math.floor(duration.minutes());
-
+  closeTrialBar() {
+    this.showTrialBar = false;
   }
 }

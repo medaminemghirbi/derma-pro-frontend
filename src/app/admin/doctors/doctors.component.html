@@ -6,58 +6,48 @@
 
     <div class="page-wrapper">
         <div class="content">
-
-
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card card-table show-entire">
                         <div class="card-body">
-
-                            <p *ngIf="last_import.last_run">Last import With Data Scrapping: {{ last_import.last_run }}
-                            </p>
-
                             <div class="page-table-header mb-2">
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <div class="doctor-table-blk">
                                             <h3>Doctors List</h3>
                                             <div class="doctor-search-blk">
-                                                <div class="top-nav-search table-search-blk">
-                                                    <form class="d-flex">
-                                                        <input type="text" name="role" class="form-control"
-                                                            [(ngModel)]="searchedKeyword"
-                                                            (ngModelChange)="searchDoctors()"
-                                                            placeholder="Search for a Doctor">
-                                                        <a class="btn"><img src="assets/img/icons/search-normal.svg"
-                                                                alt></a>
-                                                    </form>
-                                                </div>
+                                                <div class="row align-items-center">
 
-                                                <!-- Department Dropdown (Placed in the Middle) -->
+                                                    <!-- Search (9 cols) -->
+                                                    <div class="col-md-10">
+                                                        <div class="top-nav-search table-search-blk">
+                                                            <form class="d-flex">
+                                                                <input type="text" name="role" class="form-control"
+                                                                    [(ngModel)]="searchedKeyword"
+                                                                    (ngModelChange)="searchDoctors()"
+                                                                    placeholder="Search for a Doctor">
+                                                                <a class="btn"><img
+                                                                        src="assets/img/icons/search-normal.svg"
+                                                                        alt></a>
+                                                            </form>
+                                                        </div>
+                                                    </div>
 
+                                                    <!-- Add Doctor Button (3 cols) -->
+                                                    <div class="col-md-2 text-end">
+                                                        <button class="btn btn-primary w-100" data-bs-toggle="modal"
+                                                            data-bs-target="#addDoctor">
+                                                            <i class="fa fa-plus me-1"></i> Add Doctor
+                                                        </button>
+                                                    </div>
 
-                                                <div class="add-group">
-                                                    <a href="javascript:;" class="btn btn-primary doctor-refresh ms-2"
-                                                        (click)="refreshDoctors()">
-                                                        <img src="assets/img/icons/re-fresh.svg" alt>
-                                                    </a>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto text-end float-end ms-auto download-grp">
-                                        <div class="add-group">
-                                            <a href="javascript:;" (click)="opendataCSV()"
-                                                class="btn btn-primary add-pluss ms-2">
-                                                <img src="assets/img/icons/plus.svg" alt>
-                                            </a>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
-
                             <div class="table-responsive">
                                 <table *ngIf="!isLoading"
                                     class="table border-0 custom-table comman-table datatable mb-0">
@@ -68,21 +58,12 @@
                                                 <img src="assets/img/icons/sort-icon-01.svg" alt>
                                                 <img src="assets/img/icons/sort-icon-02.svg" alt>Name
                                             </th>
-                                            <th (click)="sortByName()">
-                                                <img src="assets/img/icons/sort-icon-01.svg" alt>
-                                                <img src="assets/img/icons/sort-icon-02.svg" alt>
-                                                Location
-                                            </th>
-                                            <th>Location Description</th>
-                                            <th>Fix Number</th>
-                                            <th>Email</th>
-                                            <th>Email Confirmed</th>
-                                            <th>Verified by Admin</th>
-
-                                            <th (click)="sortByCreatedAt()">
-                                                <img src="assets/img/icons/sort-icon-01.svg" alt>
-                                                <img src="assets/img/icons/sort-icon-02.svg" alt>Joining Date
-                                            </th>
+                                            <th (click)="sortByCreatedAt()">Created</th>
+                                            <th>Phone Number</th>
+                                            <th>Contact</th>
+                                            <th>Email de facturation</th>
+                                            <th>Subscription</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -96,67 +77,15 @@
                                                     <span>Dr. {{item.firstname}} {{item.lastname}}</span>
                                                 </a>
                                             </td>
-
-
-                                            <td>{{item.location}}</td>
-                                            <td>
-                                                <div class="accord-btn">
-                                                    <!-- Button to toggle collapse -->
-                                                    <a class="btn btn-primary mb-3" data-bs-toggle="collapse"
-                                                        [attr.href]="'#collapseExample' + i"
-                                                        [attr.aria-expanded]="false"
-                                                        [attr.aria-controls]="'collapseExample' + i">
-                                                        Display Description
-                                                    </a>
-                                                    <!-- Collapsible content -->
-                                                    <div class="collapse" id="collapseExample{{i}}">
-                                                        <div class="card">
-                                                            <div class="description-content">
-                                                                {{item.address}}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
                                             <td><a *ngIf="item.phone_number"
                                                     href="javascript:;">+{{item.phone_number}}</a>
                                                 <a *ngIf="!item.phone_number" href="javascript:;"> <span
                                                         style="text-align: center;"> - </span> </a>
                                             </td>
-                                            <td>{{item.email}}
-                                            </td>
-                                            <td>
-                                                <div *ngIf="item.confirmed_at">
-                                                    <i style="color: green;" class="fa fa-check"
-                                                        data-bs-toggle="tooltip" title="fa fa-check"></i>
-                                                </div>
-                                                <div *ngIf="!item.confirmed_at">
-                                                    <i style="color: red;" class="fa fa-close" data-bs-toggle="tooltip"
-                                                        title="fa fa-window-close"></i>
-                                                </div>
-                                            </td>
-                                            <td class="d-flex align-items-center gap-2">
-                                                <span *ngIf="item.is_verified" class="text-success"
-                                                    data-bs-toggle="tooltip" title="Verified">
-                                                    <i class="fa fa-check fs-5"></i>
-                                                </span>
-                                                <span *ngIf="!item.is_verified" class="text-danger"
-                                                    data-bs-toggle="tooltip" title="Not Verified">
-                                                    <i class="fa fa-times fs-5"></i>
-                                                </span>
-
-                                                <!-- Show button if verification file exists -->
-                                                <button *ngIf="item.verification_pdf_url"
-                                                    class="btn btn-sm btn-light border rounded-pill d-flex align-items-center"
-                                                    (click)="selectedPdfUrl = item.verification_pdf_url"
-                                                    data-bs-toggle="modal" data-bs-target="#verificationModal">
-                                                    <i class="fa fa-eye me-1 text-primary"></i>
-                                                    <span class="small">View file</span>
-                                                </button>
-                                            </td>
-
-
-
+                                            <td>{{item.email}}</td>
+                                            <td>{{item.facture_email}}</td>
+                                            <td><button data-bs-toggle="modal" data-bs-target="#subscriptionModal"
+                                                    class="btn btn-primary">View subscription</button></td>
                                             <td>{{item.created_at | date: 'yyyy-MM-dd'}}</td>
                                             <td class="text-end">
                                                 <div class="dropdown dropdown-action">
@@ -175,7 +104,7 @@
                                             </td>
                                         </tr>
                                         <tr *ngIf="filteredDoctors?.length == 0" class="no-appointment-row">
-                                            <td colspan="8" class="description-content no-appointment-text">
+                                            <td colspan="7" class="description-content no-appointment-text">
                                                 No Doctor Founds!!
                                             </td>
                                         </tr>
@@ -190,7 +119,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div id="delete_patient" class="modal fade delete-modal" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
@@ -226,6 +154,142 @@
         </div>
     </div>
 
+    <div class="modal fade" id="addDoctor" tabindex="-1" aria-labelledby="addDoctorlLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addDoctorlLabel">Add New Doctor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+                    <div class="modal-body">
+                        <div class="row g-3">
+
+                            <!-- Firstname -->
+                            <div class="col-md-6">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" formControlName="firstname">
+                                <div class="text-danger"
+                                    *ngIf="doctorForm.get('firstname')?.touched && doctorForm.get('firstname')?.invalid">
+                                    First name is required
+                                </div>
+                            </div>
+
+                            <!-- Lastname -->
+                            <div class="col-md-6">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" formControlName="lastname">
+                                <div class="text-danger"
+                                    *ngIf="doctorForm.get('lastname')?.touched && doctorForm.get('lastname')?.invalid">
+                                    Last name is required
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" formControlName="email">
+                                <div class="text-danger"
+                                    *ngIf="doctorForm.get('email')?.touched && doctorForm.get('email')?.invalid">
+                                    Valid email is required
+                                </div>
+                            </div>
+
+                            <!-- Gender -->
+                            <div class="col-md-6">
+                                <label class="form-label">Gender</label>
+                                <select class="form-control" formControlName="gender">
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                                <div class="text-danger"
+                                    *ngIf="doctorForm.get('gender')?.touched && doctorForm.get('gender')?.invalid">
+                                    Gender is required
+                                </div>
+                            </div>
+
+                            <!-- Location -->
+                            <div class="col-md-6">
+                                <label class="form-label">Location</label>
+                                <input type="text" class="form-control" formControlName="location">
+                                <div class="text-danger"
+                                    *ngIf="doctorForm.get('location')?.touched && doctorForm.get('location')?.invalid">
+                                    Location is required
+                                </div>
+                            </div>
 
 
+                            <!-- Password -->
+                            <div class="col-md-6">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" formControlName="password">
+                                <div class="text-danger"
+                                    *ngIf="doctorForm.get('password')?.touched && doctorForm.get('password')?.invalid">
+                                    Password must be at least 6 characters
+                                </div>
+                            </div>
+
+                            <!-- Confirm Password -->
+                            <div class="col-md-6">
+                                <label class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" formControlName="password_confirmation">
+                                <div class="text-danger"
+                                    *ngIf="doctorForm.get('password_confirmation')?.touched && doctorForm.hasError('mismatch')">
+                                    Passwords do not match
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" [disabled]="doctorForm.invalid || isLoading">
+                            {{ isLoading ? 'Registering...' : 'Register' }}
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="subscriptionModal" tabindex="-1" aria-labelledby="subscriptionlLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="subscriptionlLabel">Current Subscription Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+      <!-- Modal Body -->
+      <div class="modal-body p-5 bg-light">
+        <p class="text-muted fs-5">
+          Your subscription details will be displayed here, including plan name, renewal date, billing cycle, and features.
+        </p>
+        
+        <!-- Example Subscription Info (Optional) -->
+        <ul class="list-group mb-4">
+          <li class="list-group-item d-flex justify-content-between align-items-center border-0 rounded mb-2" style="background-color: #f8f9fa;">
+            <span class="fw-medium">Plan</span>
+            <span class="text-primary fw-semibold">Premium Pro</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center border-0 rounded mb-2" style="background-color: #f8f9fa;">
+            <span class="fw-medium">Renewal Date</span>
+            <span>March 15, 2025</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center border-0 rounded mb-2" style="background-color: #f8f9fa;">
+            <span class="fw-medium">Status</span>
+            <span class="badge bg-success rounded-pill">Active</span>
+          </li>
+        </ul>
+
+        <div class="text-center mt-4">
+          <button class="btn btn-outline-primary px-4 me-2">Manage Plan</button>
+          <button class="btn btn-primary px-4">Upgrade</button>
+        </div>
+      </div>            </div>
+        </div>
+    </div>
 </div>

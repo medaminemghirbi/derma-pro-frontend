@@ -1,0 +1,314 @@
+{
+    "blog": {
+        "title": "العنوان",
+        "content": "المحتوى",
+        "create": "إنشاء مدونة",
+        "update": "تحديث المدونة",
+        "destroy": "حذف المدونة",
+        "show": "عرض المدونة",
+        "all_blogs": "جميع المدونات"
+    },
+    "Doctor_settings": {
+        "language_system": "نظام اللغة الخاص بـ DermaPro",
+        "default_language": "اللغة الافتراضية",
+        "notifications_system": {
+            "title": "نظام الإشعارات",
+            "enable_sms": "تفعيل الإشعارات عبر الرسائل النصية القصيرة",
+            "enable_email": "تفعيل الإشعارات عبر البريد الإلكتروني",
+            "enable_system": "تفعيل الإشعارات عبر النظام"
+        },
+        "other_settings": {
+            "title": "إعدادات أخرى",
+            "working_saturday": "تفعيل العمل يوم السبت",
+            "working_online": "تفعيل العمل عبر الإنترنت",
+            "working_online_note": "عند تفعيل العمل عبر الإنترنت، سيتم إنشاء قناة المواعيد بواسطة DermaPro، وسيتم إنشاء رابط للتواصل في الوقت الفعلي (RTC) وإرساله إلى البريد الإلكتروني قبل ساعتين من الموعد. يرجى البقاء منتبهاً 😀.",
+            "working_online_price": "سعر الاستشارة عبر الإنترنت",
+            "tnd": "دينار تونسي"
+        },
+        "platform_earnings_calculation": {
+            "title": "نظام حساب أرباح المنصة",
+            "description": "يتم حساب المبلغ الإجمالي الذي تكسبه المنصة والطبيب وفقًا للمعادلة التالية:",
+            "table": {
+                "headers": {
+                    "description": "الوصف",
+                    "amount": "المبلغ (دينار تونسي)"
+                },
+                "rows": {
+                    "total_paid": "المبلغ الإجمالي المدفوع",
+                    "platform_fee": "عمولة المنصة (10%)",
+                    "doctor_earnings": "المبلغ الذي يكسبه الطبيب (90%)"
+                }
+            },
+            "formule_title":"صيغة الحساب : ",
+            "formula": "المبلغ الذي يكسبه الطبيب = المبلغ الإجمالي - (المبلغ الإجمالي × 10%)"
+        },
+        "message_phone": "رقم الهاتف للإشعارات عبر الرسائل النصية"
+    },
+        "Doctor_settings_header": {
+        "general_settings": "الإعدادات العامة",
+        "social_links": "الروابط الاجتماعية",
+        "my_location": "موقعي",
+        "my_phone_numbers": "أرقام هواتفي",
+        "other_settings": "إعدادات أخرى",
+        "my_services":"خدماتي",
+        "change_image": "تغيير الصورة"
+    },
+    "Doctor_sidebar": {
+        "dashboard": "لوحة التحكم",
+        "appointment_request": "طلبات المواعيد",
+        "planning": "التخطيط",
+        "forum": "المنتدى",
+        "email_box": "صندوق الروابط",
+        "documents": "المستندات",
+        "blogs": "المدونات",
+        "analyze_with_ai": "الذكاء الاصطناعي",
+        "logout": "تسجيل الخروج"
+    },
+    "Doctor_information": {
+        "title": "معلومات الطبيب",
+        "lastname": "الاسم الأخير",
+        "firstname": "الاسم الأول",
+        "civil_status": {
+            "title": "الحالة الاجتماعية",
+            "mrs": "السيدة",
+            "mr": "السيد",
+            "mme": "آنسة",
+            "other": "آخر"
+        },
+        "your_location": "موقعك",
+        "date_of_birth": "تاريخ الميلاد",
+        "gender": {
+            "title": "الجنس",
+            "female": "أنثى",
+            "male": "ذكر"
+        },
+        "doctor_image_details": "تفاصيل صورة الطبيب",
+        "doctor_image_bg_details": "تفاصيل صورة غلاف الطبيب",
+
+        "address_details": "تفاصيل العنوان من خرائط Google",
+        "address": "العنوان",
+        "address_line_1": "أدخل السطر الأول من العنوان",
+        "location": "الموقع",
+        "zip_postal_code": "الرمز البريدي/الرمز البريدي",
+        "city": "المدينة",
+        "update_informations": "تحديث المعلومات",
+        "update_image": "تحديث الصورة",
+        "recommended_image_size": "حجم الصورة الموصى به هو ",
+        "doctor_about":" السيرة الذاتية / تعرف عليّ",
+        "update__background_image": "تغيير صورة الغلاف"
+
+    },
+    "Doctor_social_links": {
+        "title": "إعدادات الروابط الاجتماعية",
+        "submit": "إرسال"
+    },
+    "Doctor_phone_number": {
+        "title": "أرقام هواتفي",
+        "add_new": "إضافة رقم هاتف آخر",
+        "save": "إضافة رقم هاتف آخر",
+        "existing": "أرقام الهواتف الحالية:",
+        "default": "افتراضي",
+        "update": "تحديث",
+        "delete": "حذف"
+    },
+    "Doctor_dashboard": {
+        "welcome": "صباح الخير، ",
+        "greeting": "أتمنى لك يوم عمل سعيد",
+        "nbr": "الوقت ",
+        "appointment": "إجمالي المواعيد",
+        "appointment_comments": "مواعيد المرضى المجدولة اليوم.",
+        "appointment_today": "مواعيد اليوم",
+        "Next_appointment": "الموعد التالي في",
+        "display": "عرض الكل",
+        "no_appointmnet": "لا توجد مواعيد قادمة",
+        "plan_is": "خطة الذكاء الاصطناعي الخاصة بك هي",
+        "today": "اليوم عند"
+    },
+    "Doctor_appointments": {
+        "all_patients_requests": "جميع طلبات المرضى",
+        "search_for": "ابحث عن...",
+        "filter_by_state": {
+            "title": "تصفية حسب الحالة",
+            "pending": "قيد الانتظار",
+            "accepted": "تم القبول",
+            "refused": "تم الرفض",
+            "canceled": "تم الإلغاء",
+            "finished": "منتهية"
+
+        },
+        "rendez_vous_date": "تاريخ الموعد",
+        "rendez_vous_type": "نوع الموعد",
+        "doctor": "الطبيب",
+        "patient": "المريض",
+        "phone_number": "أرقام الهواتف",
+        "status_demande": "حالة الموعد",
+
+        "status": "حالة الدفع عبر الانترنت",
+        "update": "تحديث",
+        "no_appointmnet": "لا توجد مواعيد قادمة",
+        "tip": "ملاحظة: حالة الدفع عبر الإنترنت للمواعيد عبر الإنترنت فقط",
+        "note_calendar":"ملاحظة: يمكنك ملء تقرير الاستشارة حتى يوم واحد بعد موعد الاستشارة"
+
+
+    },
+    "real_time_chat": "الدردشة في الوقت الفعلي",
+    "enter_your_message": "أدخل رسالتك",
+    "no_message": "لا توجد رسائل حتى الآن..",
+    "delete_all": "حذف الكل",
+    "mail_note": "ملاحظة: في حال تجاوز التاريخ المحدد، يتم إيقاف مكالمة الفيديو",
+    "submit":"أرسل",
+    "Doctor_documents": {
+        "title": "العنوان",
+        "file_type": "نوع الملف",
+        "file_size": "حجم الملف",
+        "actions": "الإجراءات",
+        "delete_all": "حذف جميع المستندات",
+        "add_new": "تحميل مستند جديد",
+        "show": "عرض",
+        "download": "تحميل",
+        "rename": "إعادة تسمية",
+        "delete": "حذف",
+        "preview": "معاينة المستند"
+    },
+    "Doctor_blogs": {
+        "title": "قسم المدونات",
+        "all_verified": "جميع المدونات المعتمدة من DermaPro",
+        "my_blogs": "مدوناتي",
+        "add_new": "إنشاء مدونة جديدة",
+        "read_more": "قراءة المزيد",
+        "create_new_blog": {
+            "title": "إنشاء منشور مدونة",
+            "select_diseas": "اختر المرض",
+            "blog_title": "عنوان المدونة",
+            "content": "اكتب المحتوى هنا ..",
+            "submit": "إنشاء مدونة"
+        }
+    },
+    "Doctor_IA_section": {
+        "title": "تحليل الصورة بالذكاء الاصطناعي",
+        "current_tries": "محاولاتك الحالية هي:",
+        "processing_image": "جارٍ معالجة الصورة...",
+        "prediction_result": {
+            "header": "نتيجة التنبؤ",
+            "predicted_class": "الفئة المتوقعة:",
+            "probability": "الاحتمالية:",
+            "is_cancer": "هل هو سرطان:",
+            "yes": "نعم",
+            "no": "لا",
+            "causes": "الأسباب:",
+            "symptoms": "الأعراض:",
+            "synonyms": "المرادفات:",
+            "prevention": "الوقاية:",
+            "treatment": "العلاج:",
+            "reference": "المرجع:",
+            "view_source": "عرض المصدر",
+            "download_report": "تحميل التقرير"
+
+        }
+    },
+    "Patient_image_change": {
+        "title": "تفاصيل صورة المريض",
+        "logo": "الشعار",
+        "recommended_image_size": "حجم الصورة الموصى به هو ",
+        "update_button": "إضافة/تحديث الصورة"
+    },
+    "Patient_sidebar":{
+        "dashboard": "لوحة القيادة",
+        "appointment_request": "طلب موعد",
+        "forum_with_doctors": "منتدى مع الأطباء",
+        "email_box": "صندوق البريد",
+        "blogs": "المدونات",
+        "logout": "تسجيل الخروج"
+    },
+    "header_patient": {
+        "welcome_message": "مرحبًا",
+        "mr": "السيد",
+        "mrs": "السيدة",
+        "settings": "الإعدادات"
+    },
+    "languages": {
+        "fr": "فرنسي",
+        "en": "إنجليزي",
+        "ar": "عربي"
+    },
+    "patient_settings": {
+    "title": "معلومات المريض",
+    "email": "البريد الإلكتروني",
+    "lastname": "اللقب",
+    "firstname": "الاسم",
+    "CivilStatus": "الحالة الاجتماعية",
+    "Your Gouvernement": "ولايتك",
+    "Gender": "الجنس",
+    "DateofBirth": "تاريخ الميلاد",
+    "radius_gouv": "إعدادات النطاق لعرض الأطباء حسب الولاية",
+    "rayon": "النطاق",
+    "button_map": "تحديث النطاق",
+    "button_info": "تحديث المعلومات"
+},
+"patient_request": {
+    "all_request": "جميع الطلبات",
+    "add_new": "إضافة طلب جديد",
+    "RendezVousDate": "تاريخ الموعد",
+    "Rendezvoustype": "نوع الموعد",
+    "PaymentLink": "رابط الدفع",
+    "OnlinePaymentStatus": "حالة الدفع عبر الإنترنت",
+    "Persons": "الأشخاص",
+    "PhoneNumbers": "أرقام الهاتف",
+    "CreatedDate": "تاريخ الإنشاء",
+    "Status": "الحالة",
+    "Manage": "إدارة",
+    "message": "ملاحظة: إذا لم تقم بإتمام الدفع في لوحة التحكم ، لن تتلقى رابط الاستشارة عبر الإنترنت",
+    "patient": "مريض",
+    "docteur": "طبيب",
+    "pay_now": "ادفع الآن",
+    "paid": "مدفوع",
+    "no_appointment": "لا توجد طلبات مواعيد حتى الآن",
+    "search": "البحث عن طبيب",
+    "header": "معلومات طلب الموعد",
+    "select_doctor": "اختر طبيبًا",
+    "tips": "ملاحظة: يمكنك تغيير عرض الأطباء حسب الولاية أو حسب المسافة في الإعدادات",
+    "available": "متاح عبر الإنترنت",
+    "not_avaliable": "غير متاح عبر الإنترنت"
+
+  },
+  "doctor_parcours": {
+    "parcours": "المسار الجامعي",
+    "certifications": "الشهادات",
+    "langues": "اللغات"
+},      
+    "no_blogs_title": "لا توجد مدونات في الوقت الحالي.",
+    "no_blogs_contenu": "عد لاحقًا لاكتشاف مقالات جديدة.",
+    "select_date": {
+        "back": "العودة",
+        "previous": "السابق",
+        "next": "التالي",
+        "show": "عرض الأوقات المتاحة",
+        "hide": "إخفاء الأوقات المتاحة",
+        "display_holidays": {
+            "header": "عرض العطل",
+            "title": "عطلة",
+            "holiday_name": "اسم العطلة",
+            "holiday_date": "تاريخ العطلة",
+            "holiday_day": "يوم العطلة",
+            "finished": "انتهت؟"
+        }
+    },
+
+    
+    "book_now": {
+        "confirmation": "تأكيد الموعد",
+        "date": "التاريخ",
+        "time": "الوقت",
+        "online": "موعد عبر الإنترنت؟",
+        "add_note": "إضافة ملاحظة للطبيب",
+        "note":"ملاحظة",
+        "tip": "شكرًا لاختيارك خدماتنا. يرجى تأكيد موعدك مع ",
+        "confirm": "تأكيد الموعد",
+        "cancel": "إلغاء"
+      }
+
+
+
+
+
+}

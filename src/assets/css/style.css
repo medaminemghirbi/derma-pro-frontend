@@ -791,7 +791,9 @@ Author URL: https://themeforest.net/user/dreamstechnologies
   display: block;
 }
 .sidebar .sidebar-logo .dark-logo img, .sidebar .sidebar-logo .logo-normal img {
-  width: 114px;
+  width: 165px;
+  margin-left: 15px;
+  margin-top: -10px;  
 }
 .sidebar .sidebar-logo .logo-small, .sidebar .sidebar-logo .dark-logo {
   display: none;

@@ -44,7 +44,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ChartsModule } from 'angular-bootstrap-md';
 import { ConsultationReportComponent } from './doctor/consultation-report/consultation-report.component';
-import { FilterByVerificationPipe } from './filter-by-verification.pipe';
 import { MedicalCertificationComponent } from './doctor/medical-certification/medical-certification.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { SafeUrlPipe } from './safe-url.pipe';
@@ -87,7 +86,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ForgotPasswordComponent,
     ResetPasswordComponent,
     ConsultationReportComponent,
-    FilterByVerificationPipe,
     MedicalCertificationComponent,
     SafeUrlPipe,
     PatientsListComponent,
